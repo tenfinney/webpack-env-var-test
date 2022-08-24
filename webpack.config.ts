@@ -28,7 +28,10 @@ const config = (env: any) => {
       //   // process: { env: { VITE_INFURA_ID: JSON.stringify(process.env.VITE_INFURA_ID) } }
       //   'process.env.VITE_TEST_VAR': process.env.TEST_VAR
       // }),
-      new webpack.EnvironmentPlugin (['VITE_TEST_VAR']),
+      new webpack.DefinePlugin({
+        'process': JSON.stringify({env:{VITE_TEST_VAR:'test'}})
+      }),
+      //      new webpack.EnvironmentPlugin (['VITE_TEST_VAR']),
 
       new webpack.ProvidePlugin({
         Buffer: ['buffer', 'Buffer'],
@@ -55,6 +58,11 @@ const config = (env: any) => {
     optimization: {
       usedExports: true,
     },
+    devServer: {
+      compress: true,
+      allowedHosts: 'ape.lan.247420.xyz',
+  
+    },    
     output: {
       clean: true,
       path: path.resolve(__dirname, 'dist'),

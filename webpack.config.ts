@@ -29,12 +29,9 @@ const config = (env: any) => {
       //   'process.env.VITE_TEST_VAR': process.env.TEST_VAR
       // }),
       new webpack.DefinePlugin({
-        // this might expose confidential data about your environment
         'process.env': JSON.stringify(process.env),
-
-        // the correct way
         'process.env.VITE_TEST_VAR': JSON.stringify('Donald Hump')
-    }),
+      }),
       //new webpack.EnvironmentPlugin (['VITE_TEST_VAR']),
 
       new webpack.ProvidePlugin({

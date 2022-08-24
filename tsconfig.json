@@ -12,6 +12,7 @@
     "sourceMap": true,
     "jsx": "react",
     "baseUrl": "./src/",
+    "typeRoots": ["./node_modules/@types", "./src/types"],  
     "paths": {
       "@/lib/*": ["lib/*"],
       "@/config": ["config"],
